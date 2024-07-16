@@ -5,10 +5,10 @@ spring:
     username: ${MYSQL_USERNAME}
     password: ${MYSQL_PASSWORD}
   jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate:
       ddl-auto: update
-    properties:
-      show_sql: true
 
   jackson:
     property-naming-strategy: SNAKE_CASE

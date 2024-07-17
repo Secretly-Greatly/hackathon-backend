@@ -17,6 +17,9 @@ public class Post {
     @Column(nullable = false)
     private String fileUrl;
 
+    @Column(nullable = false)
+    private String content;
+
     @ManyToOne
     @JoinColumn(nullable = false, name = "photo_id")
     private Photo photo;

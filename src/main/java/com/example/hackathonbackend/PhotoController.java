@@ -14,7 +14,7 @@ public class PhotoController {
     private final PhotoService photoService;
 
     @GetMapping("/photo")
-    public List<String> getUrls(@RequestPart("file") MultipartFile file){
+    public List<GetPostsResponse> getUrls(@RequestPart("file") MultipartFile file){
         return photoService.getUrls(file);
     }
 }

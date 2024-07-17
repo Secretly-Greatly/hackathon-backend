@@ -20,7 +20,7 @@ public class PhotoService {
     private final PhotoClient photoClient;
 
     @Transactional
-    public List<String> getUrls(MultipartFile file){
+    public List<GetPostsResponse> getUrls(MultipartFile file){
         Long photoId = photoClient.getPhotoId(file).getId();
 
         Photo photo = photoRepository.findById(photoId).orElseThrow(RuntimeException::new);
@@ -28,7 +28,10 @@ public class PhotoService {
         System.out.println(photo.getBrandName());
 
         return postRepository.findAllByPhoto(photo).stream().map(
-                Post::getFileUrl
+                it -> GetPostsResponse.builder()
+                        .url(it.getFileUrl())
+                        .content(it.getContent())
+                        .build()
         ).toList();
     }
 }

@@ -21,6 +21,7 @@ public class PhotoService {
 
     @Transactional
     public GetPostsResponse getUrls(MultipartFile file) {
+        System.out.println("요청 들어옴");
         Long photoId = photoClient.getPhotoId(file).getId();
 
         Photo photo = photoRepository.findById(photoId).orElseThrow(RuntimeException::new);

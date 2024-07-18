@@ -18,4 +18,9 @@ public class PhotoController {
     public GetPostsResponse getUrls(@RequestPart("file") MultipartFile file){
         return photoService.getUrls(file);
     }
+
+    @GetMapping
+    public String hello() {
+        return "hello";
+    }
 }
